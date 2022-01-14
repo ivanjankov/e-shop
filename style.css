@@ -1,0 +1,23 @@
+:root {
+	--bg-color: #e5e5e5;
+	--yllow-clr: #fdcd0b;
+	--product-head-clr: #1a202c;
+	--txt-clr: #969696;
+	--icon-clr: #4a5568;
+	--border-clr: #ebebeb;
+	--blue-clr: #0065db;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: -apple-system, 'BlinkMacSystemFont', 'Helvetica Neue',
+		'Lucida Grande';
+	font-size: 18px;
+	line-height: 22px;
+	background-color: var(--bg-color);
+}
