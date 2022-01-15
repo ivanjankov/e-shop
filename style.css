@@ -143,6 +143,7 @@ textarea {
 #filter-wrapper {
 	border: 1px solid var(--border-clr);
 	border-radius: 20px 20px 0 0;
+	min-height: 600px;
 }
 
 #filter-heading {
@@ -181,4 +182,54 @@ textarea {
 	border-radius: 50% !important;
 	background-color: var(--product-head-clr) !important;
 	border: none !important;
+}
+
+.color-pick {
+	border-radius: 50%;
+	width: 60px;
+	height: 60px;
+	cursor: pointer;
+}
+
+.clr-blck {
+	background-color: #000;
+}
+.clr-red {
+	background-color: #ff0000;
+}
+
+.clr-blue {
+	background-color: var(--blue-clr);
+}
+
+.clr-yellow {
+	background-color: var(--yllow-clr);
+}
+
+.clr-green {
+	background-color: #00ff00;
+}
+
+.clr-white {
+	background-color: rgb(202, 202, 202);
+}
+
+.clr-grey {
+	background-color: #969696;
+}
+
+.clr-orange {
+	background-color: #e26f03;
+}
+
+.color-pick {
+	position: relative;
+}
+
+.icon-check {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	display: none;
 }

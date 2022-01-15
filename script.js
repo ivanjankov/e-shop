@@ -34,13 +34,13 @@ $(function () {
 	$('.checkbox-init').on('change', function () {
 		let minPrice = $('#slider-range').slider('values', 0);
 		let maxPrice = $('#slider-range').slider('values', 1);
-		if (this.value == 'all') {
-			selectedProducts = fullProductList;
-		} else if (this.checked) {
-			selectedProducts.push(this.value);
-		} else {
-			selectedProducts.splice(selectedProducts.indexOf(this.value), 1);
-		}
+		// if (this.value == 'all') {
+		// 	selectedProducts = fullProductList;
+		// } else if (this.checked) {
+		// 	selectedProducts.push(this.value);
+		// } else {
+		// 	selectedProducts.splice(selectedProducts.indexOf(this.value), 1);
+		// }
 		let filteredList = getSelectedItems();
 		updateList(minPrice, maxPrice, filteredList);
 		// console.log(selectedProducts);
@@ -99,18 +99,60 @@ $(function () {
 		console.log(getCheckedValues);
 		return getCheckedValues;
 	}
+
+	// COLOR FILTER LOGIC
+
+	chooseColor();
+
+	function chooseColor() {
+		$('.color-pick').each(function () {
+			$(this).on('click', () => {
+				let chosenColor = $(this);
+				if ($('.' + $(this).attr('data-colour')).length === 0) {
+					$('#selected-colors').append(
+						'<div class="d-flex align-content-center picked-colors ' +
+							$(this).attr('data-colour') +
+							'"><i class="fas fa-times"></i><p class="ms-4"> ' +
+							$(this).attr('data-colour') +
+							'</p></div>'
+					);
+					$(this).children().show();
+					console.log($(this).attr('data-colour'));
+				} else {
+					// console.log('this exist', $(this).attr('data-colour'));
+					// console.log('this exist', $(this).children().show());
+					// // console.log($(this.children()));
+					// $(this).children().hide();
+				}
+				removePickedColor(chosenColor);
+			});
+		});
+	}
+
+	function removePickedColor(color) {
+		// console.log($('.picked-colors'));
+		// console.log($('.picked-colors'));
+		$('.picked-colors').on('click', function () {
+			$(this).remove();
+			console.log($(this));
+			color.children().hide();
+		});
+	}
+
+	function hideCheckedColors() {}
 });
 
-function filterProductsByPrice(minVal, maxVal) {
-	$('.single-product').each(function () {
-		let product = parseInt($(this).attr('data-price'));
-		if (product > maxVal || product < minVal) {
-			$(this).hide();
-		} else {
-			$(this).show();
-		}
-	});
-}
+// function filterProductsByPrice() {
+// 	$('.single-product').each(function () {
+// 		let product = $(this).attr('data-price');
+// 		console.log(product);
+// 		// if (product > maxVal || product < minVal) {
+// 		// 	$(this).hide();
+// 		// } else {
+// 		// 	$(this).show();
+// 		// }
+// 	});
+// }
 
 function dropDownCategories() {
 	$('.categories').each(function () {
