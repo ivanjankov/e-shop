@@ -12,10 +12,7 @@ $(function () {
 			$('#amount').val('€' + ui.values[0] + ' - €' + ui.values[1]);
 		},
 		change: function (event, ui) {
-			let minVal = ui.values[0];
-			let maxVal = ui.values[1];
-			let filteredProducts = getSelectedItems();
-			updateList(minVal, maxVal, filteredProducts);
+			helperFunction();
 			// filterProductsByPrice(minVal, maxVal);
 		},
 	};
@@ -32,20 +29,10 @@ $(function () {
 	);
 
 	$('.checkbox-init').on('change', function () {
-		let minPrice = $('#slider-range').slider('values', 0);
-		let maxPrice = $('#slider-range').slider('values', 1);
-		// if (this.value == 'all') {
-		// 	selectedProducts = fullProductList;
-		// } else if (this.checked) {
-		// 	selectedProducts.push(this.value);
-		// } else {
-		// 	selectedProducts.splice(selectedProducts.indexOf(this.value), 1);
-		// }
-		let filteredList = getSelectedItems();
-		updateList(minPrice, maxPrice, filteredList);
+		helperFunction();
 		// console.log(selectedProducts);
 	});
-	function updateList(min, max, selected) {
+	function updateList(min, max, selectedBrands, selectedColors) {
 		productList
 			.hide()
 			.filter((el, ui) => {
@@ -54,7 +41,8 @@ $(function () {
 				return (
 					Number(data.price) > min &&
 					Number(data.price) < max &&
-					selected.includes(data.brand)
+					selectedBrands.includes(data.brand) &&
+					selectedColors.includes(data.colour)
 				);
 			})
 			.show();
@@ -63,7 +51,6 @@ $(function () {
 	// CHECKBOX LOGIC
 
 	masterCheck.change(() => {
-		console.log;
 		let isCheboxAllChecked = $('#all').is(':checked');
 		listCheckedItems.prop('checked', isCheboxAllChecked);
 		getSelectedItems();
@@ -96,7 +83,7 @@ $(function () {
 			getCheckedValues = fullProductList;
 			masterCheck.prop('checked', true);
 		}
-		console.log(getCheckedValues);
+
 		return getCheckedValues;
 	}
 
@@ -108,51 +95,57 @@ $(function () {
 		$('.color-pick').each(function () {
 			$(this).on('click', () => {
 				let chosenColor = $(this);
-				if ($('.' + $(this).attr('data-colour')).length === 0) {
+				let divAttribute = $(this).attr('data-colour');
+				if ($('.' + divAttribute).length === 0) {
 					$('#selected-colors').append(
-						'<div class="d-flex align-content-center picked-colors ' +
-							$(this).attr('data-colour') +
+						'<div data-colour="' +
+							divAttribute +
+							'" class="d-flex align-content-center picked-colors ' +
+							divAttribute +
 							'"><i class="fas fa-times"></i><p class="ms-4"> ' +
-							$(this).attr('data-colour') +
+							divAttribute +
 							'</p></div>'
 					);
 					$(this).children().show();
-					console.log($(this).attr('data-colour'));
 				} else {
-					// console.log('this exist', $(this).attr('data-colour'));
-					// console.log('this exist', $(this).children().show());
-					// // console.log($(this.children()));
-					// $(this).children().hide();
 				}
 				removePickedColor(chosenColor);
+				helperFunction();
 			});
 		});
 	}
 
 	function removePickedColor(color) {
-		// console.log($('.picked-colors'));
-		// console.log($('.picked-colors'));
 		$('.picked-colors').on('click', function () {
 			$(this).remove();
 			console.log($(this));
 			color.children().hide();
+			helperFunction();
 		});
 	}
 
-	function hideCheckedColors() {}
-});
+	function getPickedColorsList() {
+		let arrayOfColors = [];
+		$('.picked-colors').each((i, ui) => {
+			arrayOfColors.push(ui.dataset.colour);
+		});
 
-// function filterProductsByPrice() {
-// 	$('.single-product').each(function () {
-// 		let product = $(this).attr('data-price');
-// 		console.log(product);
-// 		// if (product > maxVal || product < minVal) {
-// 		// 	$(this).hide();
-// 		// } else {
-// 		// 	$(this).show();
-// 		// }
-// 	});
-// }
+		if (arrayOfColors.length === 0) {
+			arrayOfColors = ['black', 'red', 'green', 'yellow'];
+		}
+
+		return arrayOfColors;
+	}
+
+	function helperFunction() {
+		let listOfColors = getPickedColorsList();
+		let getCheckedValues = getSelectedItems();
+		let minPrice = $('#slider-range').slider('values', 0);
+		let maxPrice = $('#slider-range').slider('values', 1);
+
+		updateList(minPrice, maxPrice, getCheckedValues, listOfColors);
+	}
+});
 
 function dropDownCategories() {
 	$('.categories').each(function () {
