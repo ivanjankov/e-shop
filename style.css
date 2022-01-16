@@ -236,7 +236,7 @@ textarea {
 	background-color: #fff;
 	border: 1px solid var(--border-clr);
 	border-radius: 10px;
-	/* max-width: 380px; */
+	max-width: 380px;
 	margin-top: 1rem;
 }
 .product-title {

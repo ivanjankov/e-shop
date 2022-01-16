@@ -1,6 +1,27 @@
 $(document).ready(function () {
 	$(function () {
-		let fullProductList = ['lg', 'sony', 'samsung'];
+		let fullProductList = [
+			'lg',
+			'sony',
+			'samsung',
+			'loewe',
+			'panasonic',
+			'philips',
+			'salora',
+			'sharp',
+			'tcl',
+			'thompson',
+		];
+		let colorList = [
+			'black',
+			'red',
+			'blue',
+			'green',
+			'orange',
+			'grey',
+			'white',
+			'yellow',
+		];
 		let productList = $('.single-product');
 
 		let selectedProducts = [];
@@ -131,7 +152,7 @@ $(document).ready(function () {
 			});
 
 			if (arrayOfColors.length === 0) {
-				arrayOfColors = ['black', 'red', 'green', 'yellow'];
+				arrayOfColors = colorList;
 			}
 
 			return arrayOfColors;
@@ -286,6 +307,25 @@ $(document).ready(function () {
 			let items = document.getElementById('total-items');
 			items.innerText = totalItems;
 		}
+
+		// FILTER RESET
+
+		$('#reset-btn').click(resetFilter);
+
+		function resetFilter() {
+			$('#slider-range').slider('values', 0, 300);
+			$('#slider-range').slider('values', 1, 1500);
+			$('#selected-colors').html('');
+			let icons = $('.icon-check');
+			for (let i = 0; i < icons.length; i++) {
+				$(icons[i]).css('display', 'none');
+			}
+			masterCheck.prop('checked', true);
+			listCheckedItems.prop('checked', false);
+			let listOfColors = colorList;
+			let getCheckedValues = fullProductList;
+			updateList(300, 1500, getCheckedValues, listOfColors);
+		}
 	});
 
 	function dropDownCategories() {
@@ -295,6 +335,8 @@ $(document).ready(function () {
 			});
 		});
 	}
+
+	// SLICK SLIDER
 	$('.autoplay').slick({
 		slidesToShow: 5,
 		slidesToScroll: 1,
