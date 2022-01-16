@@ -296,10 +296,12 @@ $(document).ready(function () {
 		});
 	}
 	$('.autoplay').slick({
-		slidesToShow: 4,
+		slidesToShow: 5,
 		slidesToScroll: 1,
 		autoplay: true,
 		autoplaySpeed: 1000,
+		variableWidth: true,
+		variableHeight: true,
 	});
 	document.querySelector(
 		'.slick-prev'
