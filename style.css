@@ -120,11 +120,14 @@ textarea {
 	position: absolute;
 	width: 600px;
 	min-height: 400px;
-	background-color: rgb(202, 202, 202);
 	border-radius: 5px;
-	top: 40px;
+	top: 50px;
 	right: 0;
 	transition: all 0.5s ease-in;
+	box-shadow: rgba(100, 100, 111, 0.4) 0px 7px 29px 0px;
+	background-color: #fff;
+	border: 2px solid var(--border-clr);
+	z-index: 100;
 }
 
 #total-items {
@@ -165,10 +168,16 @@ textarea {
 }
 
 .cart-column {
-	border-bottom: 1px solid var(--product-head-clr);
+	border-bottom: 2px solid var(--border-clr);
 	margin-right: 1.5em;
 	padding-bottom: 10px;
 	margin-top: 10px;
+	font-weight: 700;
+	font-size: 18px;
+}
+
+.cart-total-price {
+	font-weight: 500;
 }
 
 .cart-quantity-input {
@@ -177,13 +186,14 @@ textarea {
 }
 
 .btn-remove {
+	border-radius: 5px;
+	background-color: #ef3030;
+	color: #fff;
+	height: 35px;
+	width: 80px;
 	outline: none;
 	border: none;
-	height: 30px;
-	width: 80px;
-	border-radius: 5px;
-	background-color: #ff0000;
-	color: #fff;
+	font-weight: 600;
 }
 
 .visible {
@@ -226,7 +236,7 @@ textarea {
 	background-color: #fff;
 	border: 1px solid var(--border-clr);
 	border-radius: 10px;
-	max-width: 420px;
+	/* max-width: 380px; */
 	margin-top: 1rem;
 }
 .product-title {
@@ -341,9 +351,9 @@ textarea {
 	border-bottom: 1px solid #e2e2e2;
 }
 
-.price-range {
+/* .price-range {
 	padding: 20px;
-}
+} */
 
 .price-range label {
 	font-size: 18px;
@@ -373,8 +383,8 @@ textarea {
 
 .color-pick {
 	border-radius: 50%;
-	width: 60px;
-	height: 60px;
+	width: 50px;
+	height: 50px;
 	cursor: pointer;
 }
 
@@ -490,4 +500,101 @@ footer {
 	font-size: 28px;
 	font-weight: 700;
 	line-height: 22px;
+}
+
+/* QUERRIES */
+
+@media only screen and (max-width: 1400px) {
+	#filter-wrapper {
+		width: 98%;
+	}
+}
+@media only screen and (max-width: 992px) {
+	#hero-section {
+		min-height: 450px;
+	}
+	h1 {
+		font-size: 59px;
+		word-wrap: normal;
+	}
+
+	h2 {
+		font-size: 35px;
+	}
+
+	.logo a {
+		font-size: 25px;
+	}
+
+	#search-form {
+		width: 80%;
+		margin: 1rem auto;
+	}
+
+	.search-icon {
+		right: 20px;
+	}
+
+	#total-items {
+		bottom: 18px;
+	}
+	#filter-wrapper {
+		width: 98%;
+	}
+	#filter-heading h3 {
+		font-size: 1rem;
+	}
+
+	#reset-btn {
+		width: 70px;
+		height: 40px;
+		font-size: 18px;
+	}
+
+	.color-pick {
+		width: 35px;
+		height: 35px;
+	}
+}
+@media only screen and (max-width: 768px) {
+	#hero-section {
+		min-height: 450px;
+	}
+	h1 {
+		font-size: 59px;
+		word-wrap: normal;
+		text-align: center;
+	}
+
+	h2 {
+		font-size: 35px;
+		text-align: center;
+	}
+
+	.associate-brands {
+		display: none !important;
+	}
+
+	.logo a {
+		font-size: 25px;
+	}
+
+	#search-form {
+		width: 80%;
+		margin: 1rem auto;
+	}
+
+	.search-icon {
+		right: 20px;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	footer ul {
+		padding: 0 2rem;
+	}
+
+	#filter-wrapper {
+		margin: 0.5rem;
+	}
 }
