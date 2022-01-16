@@ -100,7 +100,7 @@ $(document).ready(function () {
 						$('#selected-colors').append(
 							'<div data-colour="' +
 								divAttribute +
-								'" class="d-flex align-content-center picked-colors ' +
+								'" class="d-flex ps-4 mt-3 align-content-center picked-colors ' +
 								divAttribute +
 								'"><i class="fas fa-times"></i><p class="ms-4"> ' +
 								divAttribute +

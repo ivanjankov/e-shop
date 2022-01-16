@@ -281,6 +281,7 @@ textarea {
 	border: 1px solid var(--border-clr);
 	border-radius: 20px 20px 0 0;
 	min-height: 600px;
+	width: 80%;
 }
 
 #filter-heading {
@@ -291,17 +292,61 @@ textarea {
 #filter-heading h3 {
 	font-size: 1.44rem;
 	color: #fff;
+	font-weight: 700;
+	letter-spacing: 1px;
 }
 
 #reset-btn {
 	border: 1px solid #fff;
 	background: transparent;
 	outline: none;
+	width: 100px;
+	height: 48px;
+	border-radius: 8px;
+	font-size: 20px;
+	font-weight: 400;
 }
 
 #amount {
 	color: var(--blue-clr);
 	border: none !important;
+	font-size: 16px;
+	font-weight: 400;
+	margin-bottom: 10px;
+}
+
+#filter-price h3 {
+	font-size: 20px;
+	font-weight: 400;
+	color: #000;
+	margin: 0;
+}
+#filter-product h3 {
+	font-size: 20px;
+	font-weight: 400;
+	color: #000;
+	margin: 0;
+}
+#filter-color h3 {
+	font-size: 20px;
+	font-weight: 400;
+	color: #000;
+	margin: 0;
+}
+
+.categories {
+	padding: 20px;
+	background-color: #faf8f8;
+	border-bottom: 1px solid #e2e2e2;
+}
+
+.price-range {
+	padding: 20px;
+}
+
+.price-range label {
+	font-size: 18px;
+	font-weight: 400;
 }
 
 #slider-range {
@@ -314,11 +359,15 @@ textarea {
 .ui-slider-range {
 	background-color: var(--product-head-clr) !important;
 }
-
+.ui-slider,
 .ui-slider-handle {
 	border-radius: 50% !important;
 	background-color: var(--product-head-clr) !important;
 	border: none !important;
+}
+
+.ui-slider-horizontal {
+	height: 8px;
 }
 
 .color-pick {
@@ -328,35 +377,58 @@ textarea {
 	cursor: pointer;
 }
 
+#selected-colors h6 {
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.picked-colors p {
+	text-transform: capitalize !important;
+	margin-bottom: 0;
+	font-size: 20px;
+	font-weight: 400;
+}
+
+.fa-times {
+	border: 1px solid #cbcbcb;
+	width: 24px;
+	height: 24px;
+	text-align: center;
+	padding: 1px;
+	font-size: 16px;
+	border-radius: 3px;
+}
+
 .clr-blck {
-	background-color: #000;
+	background-color: #212121;
 }
 .clr-red {
-	background-color: #ff0000;
+	background-color: #ef3030;
 }
 
 .clr-blue {
-	background-color: var(--blue-clr);
+	background-color: #3940f2;
 }
 
 .clr-yellow {
-	background-color: var(--yllow-clr);
+	background-color: #fff73d;
 }
 
 .clr-green {
-	background-color: #00ff00;
+	background-color: #5cea95;
 }
 
 .clr-white {
-	background-color: rgb(202, 202, 202);
+	background-color: rgb(255, 255, 255);
+	border: 1px solid #000;
 }
 
 .clr-grey {
-	background-color: #969696;
+	background-color: #c3c3c3;
 }
 
 .clr-orange {
-	background-color: #e26f03;
+	background-color: #ff8d3b;
 }
 
 .color-pick {

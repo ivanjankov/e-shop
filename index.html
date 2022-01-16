@@ -135,12 +135,15 @@
 		<div id="main-content" class="my-5">
 			<div class="row">
 				<div class="col-md-3">
-					<div id="filter-wrapper" class="">
-						<div id="filter-heading" class="d-flex justify-content-between p-3">
+					<div id="filter-wrapper" class="ms-auto">
+						<div
+							id="filter-heading"
+							class="d-flex justify-content-between p-3 align-items-center"
+						>
 							<h3 class="text-uppercase">Filter By:</h3>
 							<button id="reset-btn" class="btn text-white">Reset</button>
 						</div>
-						<div id="filter-price" class="m-3">
+						<div id="filter-price">
 							<div
 								class="d-flex justify-content-between align-items-center categories"
 							>
@@ -148,23 +151,23 @@
 								<i class="fas fa-chevron-down me-4"></i>
 							</div>
 
-							<div class="ms-3 price-range">
-								<p>
+							<div class="price-range ms-3">
+								<div>
 									<label for="amount">Price range streched</label>
 									<input type="text" id="amount" readonly />
-								</p>
+								</div>
 
 								<div id="slider-range"></div>
 							</div>
 						</div>
-						<div id="filter-product" class="m-3">
+						<div id="filter-product">
 							<div
 								class="d-flex justify-content-between align-items-center categories"
 							>
 								<h3 class="ms-3">Brand</h3>
-								<i class="fas fa-chevron-down me-3"></i>
+								<i class="fas fa-chevron-down me-4"></i>
 							</div>
-							<div id="checkbox-wrapper" class="price-range">
+							<div id="checkbox-wrapper" class="price-range ms-4">
 								<div class="single-checkbox">
 									<input type="checkbox" value="all" id="all" checked />
 									<label for="all">All</label>
@@ -185,52 +188,127 @@
 									<input type="checkbox" class="checkbox-init" value="lg" />
 									<label for="LG">Lg</label>
 								</div>
+								<div class="single-checkbox">
+									<input type="checkbox" class="checkbox-init" value="loewe" />
+									<label for="loewe">Loewe</label>
+								</div>
+								<div class="single-checkbox">
+									<input
+										type="checkbox"
+										class="checkbox-init"
+										value="panasonic"
+									/>
+									<label for="panasonic">Panasonic</label>
+								</div>
+								<div class="single-checkbox">
+									<input
+										type="checkbox"
+										class="checkbox-init"
+										value="phillips"
+									/>
+									<label for="Phillips">Phillips</label>
+								</div>
+								<div class="single-checkbox">
+									<input type="checkbox" class="checkbox-init" value="salora" />
+									<label for="Salora">Salora</label>
+								</div>
+								<div class="single-checkbox">
+									<input type="checkbox" class="checkbox-init" value="sharp" />
+									<label for="Sharp">Sharp</label>
+								</div>
+								<div class="single-checkbox">
+									<input type="checkbox" class="checkbox-init" value="tcl" />
+									<label for="Tcl">Tcl</label>
+								</div>
+								<div class="single-checkbox">
+									<input
+										type="checkbox"
+										class="checkbox-init"
+										value="thomson"
+									/>
+									<label for="Thomson">Thomson</label>
+								</div>
 							</div>
 						</div>
-						<div id="filter-color" class="m-3">
+						<div id="filter-color">
 							<div
 								class="d-flex justify-content-between align-items-center categories"
 							>
 								<h3 class="ms-3">Color</h3>
-								<i class="fas fa-chevron-down me-3"></i>
+								<i class="fas fa-chevron-down me-4"></i>
 							</div>
-							<div class="row p-4 price-range d-flex justify-content-evenly">
-								<div class="col-sm-3 color-pick clr-blck" data-colour="black">
-									<i class="fas fa-check icon-check"></i>
+							<div id="colors-wrapper" class="price-range">
+								<div class="row p-4 price-range d-flex justify-content-evenly">
+									<div class="col-sm-3">
+										<div class="color-pick clr-blck" data-colour="black">
+											<i class="fas fa-check icon-check"></i>
+										</div>
+									</div>
+
+									<div class="col-sm-3">
+										<div class="col-sm-3 color-pick clr-red" data-colour="red">
+											<i class="fas fa-check icon-check"></i>
+										</div>
+									</div>
+									<div class="col-sm-3">
+										<div
+											class="col-sm-3 color-pick clr-blue"
+											data-colour="blue"
+										>
+											<i class="fas fa-check icon-check"></i>
+										</div>
+									</div>
+
+									<div class="col-sm-3">
+										<div
+											class="col-sm-3 color-pick clr-green"
+											data-colour="green"
+										>
+											<i class="fas fa-check icon-check"></i>
+										</div>
+									</div>
+									<div class="col-sm-3 my-2">
+										<div
+											class="col-sm-3 color-pick clr-yellow"
+											data-colour="yellow"
+										>
+											<i class="fas fa-check icon-check"></i>
+										</div>
+									</div>
+
+									<div class="col-sm-3 my-2">
+										<div
+											class="col-sm-3 color-pick clr-orange"
+											data-colour="orange"
+										>
+											<i class="fas fa-check icon-check"></i>
+										</div>
+									</div>
+									<div class="col-sm-3 my-2">
+										<div
+											class="col-sm-3 color-pick clr-grey"
+											data-colour="grey"
+										>
+											<i class="fas fa-check icon-check"></i>
+										</div>
+									</div>
+
+									<div class="col-sm-3 my-2">
+										<div
+											class="col-sm-3 color-pick clr-white"
+											data-colour="white"
+										>
+											<i class="fas fa-check icon-check"></i>
+										</div>
+									</div>
 								</div>
-								<div class="col-sm-3 color-pick clr-red" data-colour="red">
-									<i class="fas fa-check icon-check"></i>
+								<div id="selected-colors" class="d-flex flex-column">
+									<h6 class="ps-4">Selected Colors</h6>
+									<!-- <div class="d-flex align-content-center picked-colors">
+											<i class="fas fa-times"></i>
+											<p class="ms-4">Green</p>
+										</div> -->
 								</div>
-								<div class="col-sm-3 color-pick clr-blue" data-colour="blue">
-									<i class="fas fa-check icon-check"></i>
-								</div>
-								<div class="col-sm-3 color-pick clr-green" data-colour="green">
-									<i class="fas fa-check icon-check"></i>
-								</div>
-								<div
-									class="col-sm-3 color-pick clr-yellow"
-									data-colour="yellow"
-								>
-									<i class="fas fa-check icon-check"></i>
-								</div>
-								<div
-									class="col-sm-3 color-pick clr-orange"
-									data-colour="orange"
-								>
-									<i class="fas fa-check icon-check"></i>
-								</div>
-								<div class="col-sm-3 color-pick clr-grey" data-colour="grey">
-									<i class="fas fa-check icon-check"></i>
-								</div>
-								<div class="col-sm-3 color-pick clr-white" data-colour="white">
-									<i class="fas fa-check icon-check"></i>
-								</div>
-							</div>
-							<div id="selected-colors" class="d-flex flex-column">
-								<!-- <div class="d-flex align-content-center picked-colors">
-										<i class="fas fa-times"></i>
-										<p class="ms-4">Green</p>
-									</div> -->
 							</div>
 						</div>
 					</div>
