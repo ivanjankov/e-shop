@@ -227,6 +227,7 @@ textarea {
 	border: 1px solid var(--border-clr);
 	border-radius: 10px;
 	max-width: 420px;
+	margin-top: 1rem;
 }
 .product-title {
 	color: var(--heading-clr);
