@@ -108,6 +108,7 @@ textarea {
 	justify-content: center;
 	align-items: center;
 	font-weight: 500;
+	cursor: pointer;
 }
 
 .shopping-bag i,
@@ -281,4 +282,30 @@ textarea {
 	top: 50%;
 	transform: translate(-50%, -50%);
 	display: none;
+}
+
+/* FOOTER */
+
+.autoplay div {
+	min-height: 100px;
+	display: flex !important;
+	/* align-items: center !important;
+	justify-content: center; */
+}
+
+.slick-arrow {
+	min-width: 50px !important;
+	height: 50px !important;
+	background: transparent;
+	border-radius: 50%;
+	outline: none;
+	border: 1px solid #000;
+}
+
+#slider {
+	height: 50px !important;
+}
+
+footer {
+	max-height: 150px;
 }
