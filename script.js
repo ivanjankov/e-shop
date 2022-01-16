@@ -23,8 +23,6 @@ $(document).ready(function () {
 			'yellow',
 		];
 		let productList = $('.single-product');
-
-		let selectedProducts = [];
 		let slideOptions = {
 			range: true,
 			min: 300,
@@ -56,7 +54,6 @@ $(document).ready(function () {
 				.hide()
 				.filter((el, ui) => {
 					let data = ui.dataset;
-
 					return (
 						Number(data.price) > min &&
 						Number(data.price) < max &&
@@ -138,7 +135,6 @@ $(document).ready(function () {
 		function removePickedColor(color) {
 			$('.picked-colors').on('click', function () {
 				$(this).remove();
-				console.log($(this));
 				color.children().hide();
 				helperFunction();
 			});
@@ -221,18 +217,18 @@ $(document).ready(function () {
 			}
 			element.classList.add('cart-row', 'd-flex');
 			elementContents = `
-			<div class="cart-item cart-column d-flex justify-content-around align-items-center">
-				<img src="${imageSrc}" alt="Tv" class="img-fluid w-50"/>
-				<span class="cart-item-title text-center">${title}</span>
-			</div>
-			<span class="cart-price cart-item-title cart-column d-flex align-items-center justify-content-center">
-				${price}
-			</span>
-			<div class="cart-quantity cart-header cart-column d-flex justify-content-evenly align-items-center"	>
-				<input class="cart-quantity-input" type="number" value="1"/>
-				<button class="btn-remove">Remove</button>
-			</div>
-			`;
+				<div class="cart-item cart-column d-flex justify-content-around align-items-center">
+					<img src="${imageSrc}" alt="Tv" class="img-fluid w-50"/>
+					<span class="cart-item-title text-center">${title}</span>
+				</div>
+				<span class="cart-price cart-item-title cart-column d-flex align-items-center justify-content-center">
+					${price}
+				</span>
+				<div class="cart-quantity cart-header cart-column d-flex justify-content-evenly align-items-center"	>
+					<input class="cart-quantity-input" type="number" value="1"/>
+					<button class="btn-remove">Remove</button>
+				</div>
+				`;
 			element.innerHTML = elementContents;
 			cartItemsWrapper.appendChild(element);
 			element
@@ -249,6 +245,7 @@ $(document).ready(function () {
 			let buttonClicked = e.target;
 			buttonClicked.parentElement.parentElement.remove();
 			updateCartTotal();
+			updateTotalItemsInCart();
 		}
 
 		function quantityChanged(e) {
@@ -306,13 +303,11 @@ $(document).ready(function () {
 			let totalItems = Array.from(
 				document.querySelectorAll('.cart-items .cart-row')
 			).length;
-			console.log(totalItems);
 			let items = document.getElementById('total-items');
 			items.innerText = totalItems;
 		}
 
-		// FILTER RESET
-
+		// FILTER SETTINGS RESET
 		$('#reset-btn').click(resetFilter);
 
 		function resetFilter() {
@@ -331,23 +326,21 @@ $(document).ready(function () {
 		}
 	});
 
-	function dropDownCategories() {
+	function dropDownFilterCategories() {
 		$('.categories').each(function () {
 			$(this).click(function () {
 				$(this).siblings('.price-range').stop().slideToggle(400);
 			});
 		});
 	}
-	dropDownCategories();
+	dropDownFilterCategories();
 
 	// SLICK SLIDER
 	$('.autoplay').slick({
-		slidesToShow: 5,
+		slidesToShow: 4,
 		slidesToScroll: 1,
 		autoplay: true,
 		autoplaySpeed: 1000,
-		variableWidth: true,
-		variableHeight: true,
 	});
 	document.querySelector(
 		'.slick-prev'
