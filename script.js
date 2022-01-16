@@ -40,8 +40,6 @@ $(document).ready(function () {
 		};
 
 		let slider = $('#slider-range').slider(slideOptions);
-		let masterCheck = $('#all');
-		let listCheckedItems = $('.checkbox-init');
 
 		$('#amount').val(
 			'€' +
@@ -70,6 +68,8 @@ $(document).ready(function () {
 		}
 
 		// CHECKBOX LOGIC
+		let masterCheck = $('#all');
+		let listCheckedItems = $('.checkbox-init');
 
 		masterCheck.change(() => {
 			let isCheboxAllChecked = $('#all').is(':checked');
@@ -85,7 +85,6 @@ $(document).ready(function () {
 				masterCheck.prop('indeterminate', false);
 				masterCheck.prop('checked', true);
 			} else if (checkedItems > 0 && checkedItems < totalItems) {
-				// masterCheck.prop('indeterminate', true);
 				masterCheck.prop('checked', false);
 			} else {
 				masterCheck.prop('indeterminate', true);
@@ -319,7 +318,7 @@ $(document).ready(function () {
 		function resetFilter() {
 			$('#slider-range').slider('values', 0, 300);
 			$('#slider-range').slider('values', 1, 1500);
-			$('#selected-colors').html('');
+			$('#selected-colors').html('<h6 class="ps-4">Selected Colors</h6>');
 			let icons = $('.icon-check');
 			for (let i = 0; i < icons.length; i++) {
 				$(icons[i]).css('display', 'none');
@@ -339,6 +338,7 @@ $(document).ready(function () {
 			});
 		});
 	}
+	dropDownCategories();
 
 	// SLICK SLIDER
 	$('.autoplay').slick({
@@ -355,6 +355,4 @@ $(document).ready(function () {
 	document.querySelector(
 		'.slick-next'
 	).innerHTML = `<i class="fas fa-chevron-right"></i>`;
-
-	dropDownCategories();
 });

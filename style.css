@@ -269,9 +269,14 @@ textarea {
 	margin-bottom: 0;
 }
 
-.reviews-icon {
+.compare-icon {
 	color: #7f9cf5;
 	font-size: 26px;
+}
+.compare-icon:hover {
+	cursor: pointer;
+	transform: scale(1.2);
+	transition: transform 0.5s ease;
 }
 
 .product-char {
@@ -282,6 +287,14 @@ textarea {
 .product-char i {
 	color: #241b55;
 	font-size: 26px;
+	transition: transform 0.5s ease;
+}
+
+.product-char i:hover {
+	cursor: pointer;
+	color: #241b55;
+	transform: scale(1.2);
+	transition: transform 0.5s ease;
 }
 
 .product-price span {
@@ -294,6 +307,11 @@ textarea {
 	color: #241b55;
 	cursor: pointer;
 	font-size: 26px;
+	transition: transform 0.5s ease;
+}
+.product-price i:hover {
+	transform: scale(1.2);
+	transition: transform 0.5s ease;
 }
 
 #filter-wrapper {
@@ -324,6 +342,11 @@ textarea {
 	border-radius: 8px;
 	font-size: 20px;
 	font-weight: 400;
+}
+#reset-btn:hover {
+	background-color: #fff;
+	transition: all 0.5s ease-in;
+	color: var(--heading-clr) !important;
 }
 
 #amount {
@@ -359,9 +382,9 @@ textarea {
 	border-bottom: 1px solid #e2e2e2;
 }
 
-/* .price-range {
-	padding: 20px;
-} */
+.price-range {
+	padding: 20px 20px 0 0;
+}
 
 .price-range label {
 	font-size: 18px;
