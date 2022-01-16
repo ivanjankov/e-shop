@@ -282,15 +282,19 @@ $(document).ready(function () {
 				'$' + total;
 		}
 		function toggleCartVisibility() {
-			let cartWrapper = document.getElementById('cart-items-wrapper');
 			let shoppingBag = document.getElementById('total-items');
-			shoppingBag.addEventListener('click', () => {
-				if (cartWrapper.classList.contains('visible')) {
-					cartWrapper.classList.remove('visible');
-				} else {
-					cartWrapper.classList.add('visible');
-				}
-			});
+			let closeWrapperBtn = document.getElementById('close-cart-wrapper');
+			shoppingBag.addEventListener('click', toggleCartVisibilityClass);
+			closeWrapperBtn.addEventListener('click', toggleCartVisibilityClass);
+		}
+
+		function toggleCartVisibilityClass() {
+			let cartWrapper = document.getElementById('cart-items-wrapper');
+			if (cartWrapper.classList.contains('visible')) {
+				cartWrapper.classList.remove('visible');
+			} else {
+				cartWrapper.classList.add('visible');
+			}
 		}
 		function displayCartWhenAddingItem() {
 			let cartWrapper = document.getElementById('cart-items-wrapper');
